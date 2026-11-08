@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #FFFFFF;
+  --ink: #202124;
+  --accent: #C8102E;
+  --accent-dark: #9E1028;
+  --accent-light: #FCEBED;
+  --surface: #F7F7F8;
+  --surface-alt: #F1F2F4;
+  --muted: #777B84;
+  --line: #E7E7E9;
+  --success: #16834A;
+  --warning: #D98B16;
+  --danger: #C8102E;
+  --radius: 12px;
+  --panel-radius: 12px;
+  --shadow: 0 1px 2px rgba(16,24,40,.05), 0 1px 3px rgba(16,24,40,.06);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* aliases used by existing components */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --primary: var(--accent);
+  --primary-dark: var(--accent-dark);
+  --primary-light: var(--accent-light);
+  --secondary: var(--surface);
+  --card: var(--paper);
+  --border: var(--line);
+  --sidebar: var(--paper);
+}
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+/* Never scroll sideways: children shrink instead of overflowing */
+html, body, #root { max-width: 100%; overflow-x: clip; }
+@layer base { * { min-width: 0; } }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+body { background: var(--paper); color: var(--ink); font-family: Inter, system-ui, sans-serif; font-size: 15px; -webkit-tap-highlight-color: transparent; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, .font-display { font-family: Manrope, Inter, system-ui, sans-serif; letter-spacing: -0.02em; }
+::selection { background: var(--accent-light); color: var(--accent-dark); }
+* { scrollbar-width: thin; scrollbar-color: #d6d7da transparent; }
+.tabular-nums { font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
+.recharts-wrapper:focus, .recharts-surface:focus { outline: none; }
+/* login wave drift (transform-only; disabled by the reduced-motion rule above) */
+@keyframes acs-wave-f { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(var(--shift), 0, 0); } }
+@keyframes acs-wave-r { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(calc(var(--shift) * -1), 0, 0); } }
